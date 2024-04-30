@@ -1,9 +1,29 @@
+import { useEffect, useState } from "react";
+import ItemCount from "./ItemCount";
+import arrayProductos from "./json/productos.json";
+import ItemList from "./ItemList";
+
 const ItemListContainer = ({mensaje}) => {
-    return(
-   <div className="container py-5">
+   const [items, setItems] = useState([]);
+
+   useEffect(() => {
+    const promesa = new Promise(resolve => {
+      setTimeout(() => {  
+      resolve(arrayProductos);
+      }, 2000 )
+    });
+
+    promesa.then(respuesta => {
+      setItems(respuesta);
+     })  
+   }, [])
+
+ return(          
+    <div className="container py-5">
     <div className="row">
         <div className="col text-center">
-          <h2 style={{color:"black", fontWeight:"bold"}}>{mensaje}</h2>
+          <ItemList items={items} />
+          <ItemCount stock={10}/>
         </div>
     </div>
    </div>
