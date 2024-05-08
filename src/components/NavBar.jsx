@@ -1,3 +1,4 @@
+import { Link ,NavLink } from "react-router-dom";
 import logo from "../assets/imagenes/logo stanley.svg";
 import CartWidget from "./CartWidget";
 
@@ -8,9 +9,9 @@ const NavBar = () => {
     <div className="row bg-dark-subtle p-3">
         <div className="col"></div>
         <div className="col-md text-center">
-         <a href="">
+         <Link to={"/"}>
             <img src={logo} alt="STANLEY" width={340} />
-         </a>
+         </Link>
         </div>
           <div className="col d-flex align-items-center justify-content-end">
             <CartWidget />
@@ -20,16 +21,16 @@ const NavBar = () => {
         <div className="col">
           <ul className="nav justify-content-center">
             <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Home</a>
+                <NavLink className="nav-link text-dark text-uppercase" to={"/"}>Home</NavLink>
             </li>
             <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Termo</a>
+                <NavLink className="nav-link text-dark text-uppercase" to={"/category/termo"}>Termo</NavLink>
             </li>
             <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Mate</a>
+                <NavLink className="nav-link text-dark text-uppercase" to={"/category/mate"}>Mate</NavLink>
             </li>
             <li className="nav-item">
-                <a className="nav-link text-dark"  href="#">Hidratacion</a>
+                <NavLink className="nav-link text-dark text-uppercase" to={"/category/hidratacion"}>Hidratacion</NavLink>
             </li>
           </ul>
         </div>
